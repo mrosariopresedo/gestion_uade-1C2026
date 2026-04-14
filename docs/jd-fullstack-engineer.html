@@ -9,11 +9,15 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --teal-dark:   #1A4050;
-      --teal-mid:    #245B6F;
+      --teal:        #0F766E;
+      --teal-dark:   #0A5954;
+      --teal-mid:    #14908A;
       --teal-accent: #2E7D96;
-      --teal-light:  #EBF4F7;
-      --teal-border: #BDD9E3;
+      --teal-light:  #CCFBF1;
+      --teal-xlight: #F0FDFA;
+      --coral:       #E86833;
+      --coral-dark:  #C4501E;
+      --coral-light: #FEF0E8;
       --white:       #FFFFFF;
       --gray-100:    #F7F9FA;
       --gray-300:    #D1D9DE;
@@ -24,7 +28,7 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #F0F4F6;
+      background: #F0FDFA;
       color: var(--gray-900);
       line-height: 1.7;
     }
@@ -36,12 +40,12 @@
       background: var(--white);
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 8px 40px rgba(26,64,80,.18);
+      box-shadow: 0 8px 40px rgba(15,118,110,.18);
     }
 
     /* ── HERO HEADER ────────────────────────────────────── */
     .hero {
-      background: var(--teal-dark);
+      background: var(--teal);
       padding: 48px 52px 40px;
       position: relative;
       overflow: hidden;
@@ -78,6 +82,19 @@
       letter-spacing: 2.5px;
       text-transform: uppercase;
       color: var(--teal-accent);
+      margin-bottom: 12px;
+    }
+    .doc-type-pill {
+      display: inline-block;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 4px;
+      padding: 4px 12px;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.75);
       margin-bottom: 12px;
     }
     .hero-title {
@@ -189,29 +206,48 @@
       line-height: 1.65;
     }
 
-    /* Bullet lists */
-    .jd-list {
+    /* Improved list styling */
+    .jd-list-enhanced {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 11px;
+      gap: 18px;
     }
-    .jd-list li {
-      display: flex;
+    .jd-list-enhanced li {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 16px;
       align-items: flex-start;
-      gap: 12px;
-      font-size: 14.5px;
+      font-size: 14px;
       color: var(--gray-900);
       line-height: 1.65;
     }
-    .jd-list li::before {
+    .jd-list-enhanced li::before {
       content: '';
       display: block;
-      flex-shrink: 0;
-      width: 7px; height: 7px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       background: var(--teal-accent);
       margin-top: 8px;
+      grid-column: 1;
+      width: 100%;
+      height: auto;
+      display: none;
+    }
+    .jd-list-enhanced .keyword {
+      font-weight: 700;
+      color: var(--teal-dark);
+      white-space: nowrap;
+      padding: 6px 10px;
+      background: var(--teal-light);
+      border-radius: 6px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .jd-list-enhanced .description {
+      color: #555;
     }
 
     /* Two-column requirements */
@@ -223,18 +259,24 @@
     .req-card {
       background: var(--gray-100);
       border: 1px solid var(--gray-300);
-      border-radius: 10px;
-      padding: 20px 22px;
+      border-radius: 12px;
+      padding: 24px 26px;
+      box-shadow: 0 2px 8px rgba(15,118,110,.06);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .req-card:hover {
+      box-shadow: 0 6px 16px rgba(15,118,110,.12);
+      transform: translateY(-2px);
     }
     .req-card-title {
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 700;
-      letter-spacing: 1.2px;
+      letter-spacing: 1.3px;
       text-transform: uppercase;
       color: var(--gray-600);
-      margin-bottom: 14px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--gray-300);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--gray-300);
     }
     .req-card .jd-list li { font-size: 13.5px; }
 
@@ -245,7 +287,7 @@
       gap: 14px;
     }
     .comp-card {
-      border: 1px solid var(--teal-border);
+      border: 1px solid var(--teal-light);
       border-radius: 10px;
       padding: 18px 20px;
       background: var(--white);
@@ -317,7 +359,7 @@
     }
     .org-node {
       background: var(--white);
-      border: 2px solid var(--teal-border);
+      border: 2px solid var(--teal-light);
       border-radius: 8px;
       padding: 10px 22px;
       font-size: 13px;
@@ -330,12 +372,12 @@
       background: var(--teal-dark);
       border-color: var(--teal-dark);
       color: var(--white);
-      box-shadow: 0 4px 14px rgba(26,64,80,.25);
+      box-shadow: 0 4px 14px rgba(15,118,110,.25);
     }
     .org-connector {
       width: 2px;
       height: 22px;
-      background: var(--teal-border);
+      background: var(--teal-light);
     }
     .org-row {
       display: flex;
@@ -358,7 +400,7 @@
     }
     .org-h-line {
       height: 2px;
-      background: var(--teal-border);
+      background: var(--teal-light);
       width: 140px;
       margin-top: 22px;
     }
@@ -467,14 +509,14 @@
       <svg viewBox="0 0 320 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Counterpart">
         <!-- Icon mark: two overlapping circles forming the C glyph -->
         <circle cx="26" cy="30" r="26" fill="rgba(255,255,255,0.92)"/>
-        <circle cx="13" cy="17" r="16" fill="#1A4050"/>
+        <circle cx="13" cy="17" r="16" fill="#0F766E"/>
         <!-- Wordmark -->
         <text x="62" y="42" font-family="'Inter', Arial, sans-serif" font-size="30" font-weight="800"
               letter-spacing="1" fill="rgba(255,255,255,0.95)">COUNTERPART</text>
       </svg>
     </div>
 
-    <p class="hero-eyebrow">Carta Oferta · Oferta de Empleo</p>
+    <div class="doc-type-pill">Job Description · Descripción del Puesto</div>
     <h1 class="hero-title">Full Stack Engineer</h1>
     <p class="hero-subtitle">Ingeniero de Desarrollo Integral · Producto &amp; Ingeniería</p>
 
@@ -494,21 +536,8 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         Semi-Senior / Senior
       </span>
-
-      <span class="pill">
-        <!-- briefcase icon -->
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
-        Producto &amp; Ingeniería
-      </span>
     </div>
   </header>
-
-  <!-- Role Level Banner -->
-  <div class="salary-banner" style="background: #0A5954;">
-    <span class="label">Departamento</span>
-    <span class="amount" style="font-size:17px;">Producto &amp; Ingeniería</span>
-    <span class="note">Reporta al Gerente de Ingeniería · Semi-Senior / Senior</span>
-  </div>
 
   <!-- ════════════════════════════════════════════════════
        BODY
@@ -524,7 +553,7 @@
         <span class="section-title">Sobre Counterpart</span>
       </div>
       <p style="font-size:14.5px; color:#374151; line-height:1.75;">
-        En <strong>Counterpart</strong> creemos que las pequeñas empresas merecen jugar en las mismas ligas que las grandes. Somos una <em>insurtech</em> con sede en Los Ángeles que opera como <strong>Managing General Agent (MGA)</strong>, especializada en seguros de responsabilidad profesional y gestión para pymes —D&amp;O, Prácticas Laborales, Fiduciario y Crimen— con una nómina de 123 personas apasionadas por la tecnología y el impacto real.
+        En <strong>Counterpart</strong> creemos que las pequeñas empresas merecen jugar en las mismas ligas que las grandes. Somos una <em>insurtech</em> con sede en Los Ángeles que opera como <strong>Managing General Agent (MGA)</strong>, especializada en seguros de responsabilidad profesional y gestión para pymes -D&amp;O, Prácticas Laborales, Fiduciario y Crimen- con una nómina de 123 personas apasionadas por la tecnología y el impacto real.
       </p>
       <br/>
       <p style="font-size:14.5px; color:#374151; line-height:1.75;">
@@ -557,15 +586,39 @@
         </div>
         <span class="section-title">Lo que harás en este rol</span>
       </div>
-      <ul class="jd-list">
-        <li>Desarrollarás funcionalidades <strong>end-to-end</strong> —frontend y backend— en las plataformas core de Counterpart, garantizando experiencias fluidas tanto en entornos web como en dispositivos móviles.</li>
-        <li>Colaborarás estrechamente con <strong>Gerentes de Producto y Diseñadores</strong> para traducir requerimientos de negocio complejos (suscripción, gestión de pólizas, evaluación de riesgos) en soluciones técnicas elegantes y escalables.</li>
-        <li>Escribirás <strong>código limpio, documentado y testeado</strong>, contribuyendo activamente a la arquitectura de microservicios y al diseño de nuevas funcionalidades.</li>
-        <li>Liderarás y participarás en <strong>code reviews</strong> que eleven los estándares del equipo y fomenten la mejora continua de nuestras prácticas de ingeniería.</li>
-        <li>Integrarás <strong>APIs internas y externas</strong> vinculadas a los procesos de suscripción y gestión de riesgos, utilizando protocolos HTTP y REST para orquestar las interacciones entre sistemas.</li>
-        <li>Participarás activamente en la <strong>planificación de sprints y ceremonias ágiles</strong>, aportando estimaciones precisas y visibilidad técnica al equipo.</li>
-        <li>Diagnosticarás y resolverás <strong>incidentes en producción</strong> con rapidez y criterio, optimizando la velocidad y escalabilidad de la arquitectura frente a grandes volúmenes de datos.</li>
-        <li>Asesorarás técnicamente a otros departamentos para la <strong>correcta implementación de nuevas aplicaciones</strong>, aportando una visión integral que conecte el mundo del seguro con la tecnología de vanguardia.</li>
+      <ul class="jd-list-enhanced">
+        <li>
+          <span class="keyword">End-to-end</span>
+          <span class="description">Desarrollarás funcionalidades frontend y backend en las plataformas core de Counterpart, garantizando experiencias fluidas tanto en entornos web como en dispositivos móviles.</span>
+        </li>
+        <li>
+          <span class="keyword">Colaboración</span>
+          <span class="description">Trabajarás estrechamente con Gerentes de Producto y Diseñadores para traducir requerimientos de negocio complejos en soluciones técnicas elegantes.</span>
+        </li>
+        <li>
+          <span class="keyword">Calidad</span>
+          <span class="description">Escribirás código limpio, documentado y testeado, contribuyendo activamente a la arquitectura de microservicios.</span>
+        </li>
+        <li>
+          <span class="keyword">Code Reviews</span>
+          <span class="description">Liderarás y participarás en revisiones que eleven los estándares del equipo y fomenten la mejora continua.</span>
+        </li>
+        <li>
+          <span class="keyword">Integración</span>
+          <span class="description">Integrarás APIs internas y externas vinculadas a los procesos de suscripción y gestión de riesgos, usando HTTP y REST.</span>
+        </li>
+        <li>
+          <span class="keyword">Sprints Ágiles</span>
+          <span class="description">Participarás activamente en planificación de sprints, aportando estimaciones precisas y visibilidad técnica.</span>
+        </li>
+        <li>
+          <span class="keyword">Producción</span>
+          <span class="description">Diagnosticarás y resolverás incidentes con rapidez, optimizando la velocidad y escalabilidad.</span>
+        </li>
+        <li>
+          <span class="keyword">Asesoramiento</span>
+          <span class="description">Asesorarás técnicamente a otros departamentos en la implementación de nuevas aplicaciones y soluciones.</span>
+        </li>
       </ul>
     </section>
 
@@ -582,34 +635,34 @@
       <div class="req-columns">
         <div class="req-card">
           <div class="req-card-title">&#9679; Imprescindibles · Ssr. &amp; Sr.</div>
-          <ul class="jd-list">
-            <li>Más de <strong>3 años de experiencia</strong> en desarrollo de software full stack.</li>
-            <li>Dominio sólido de <strong>JavaScript / TypeScript</strong> y al menos un framework frontend (<strong>React</strong> preferentemente).</li>
-            <li>Experiencia backend con <strong>Node.js, Python</strong> o similar.</li>
-            <li>Bases de datos <strong>relacionales (PostgreSQL)</strong> y no relacionales.</li>
-            <li>Control de versiones avanzado con <strong>Git</strong> para colaboración en proyectos globales.</li>
-            <li>Manejo fluido de <strong>Linux o macOS</strong>.</li>
-            <li><strong>Inglés avanzado</strong> — comunicación diaria con equipos en EE.UU.</li>
+          <ul class="jd-list-enhanced">
+            <li><span class="keyword">Experiencia</span> <span class="description">Más de 3 años en desarrollo de software full stack</span></li>
+            <li><span class="keyword">Frontend</span> <span class="description">JavaScript / TypeScript y React preferentemente</span></li>
+            <li><span class="keyword">Backend</span> <span class="description">Node.js, Python o similar</span></li>
+            <li><span class="keyword">Bases datos</span> <span class="description">PostgreSQL y bases de datos no relacionales</span></li>
+            <li><span class="keyword">Git</span> <span class="description">Control de versiones avanzado para proyectos globales</span></li>
+            <li><span class="keyword">OS</span> <span class="description">Manejo fluido de Linux o macOS</span></li>
+            <li><span class="keyword">Idioma</span> <span class="description">Inglés avanzado para comunicación con equipos EE.UU.</span></li>
           </ul>
         </div>
-        <div class="req-card" style="border-color: var(--teal-border); background: #f0f8fb;">
-          <div class="req-card-title" style="color: var(--teal-mid);">&#9650; Deseables · El salto a Senior</div>
-          <ul class="jd-list">
-            <li>Experiencia con servicios en la nube (<strong>AWS</strong> preferentemente).</li>
-            <li>Conocimiento e implementación de prácticas de <strong>CI/CD</strong>.</li>
-            <li>Experiencia contribuyendo al diseño de <strong>arquitecturas de microservicios</strong>.</li>
-            <li>Integración de APIs de servicios <strong>insurtech / fintech</strong>.</li>
-            <li>Familiaridad con herramientas de <strong>observabilidad</strong> (logging, tracing, alerting).</li>
-            <li>Experiencia en entornos de startup con <strong>metodologías ágiles</strong> (Scrum/Kanban).</li>
-            <li>Interés o experiencia en el uso de <strong>IA / ML</strong> aplicada a productos.</li>
+        <div class="req-card" style="border: 1px solid var(--teal-light); border-left: 3px solid var(--teal-mid); background: var(--teal-xlight);">
+          <div class="req-card-title" style="color: var(--teal); border-bottom-color: var(--teal-light);">&#9650; Deseables · El salto a Senior</div>
+          <ul class="jd-list-enhanced">
+            <li><span class="keyword">Cloud</span> <span class="description">AWS o servicios en la nube equivalentes</span></li>
+            <li><span class="keyword">CI/CD</span> <span class="description">Conocimiento e implementación de prácticas modernas</span></li>
+            <li><span class="keyword">Microservicios</span> <span class="description">Experiencia contribuyendo al diseño de arquitecturas</span></li>
+            <li><span class="keyword">Fintech</span> <span class="description">Integración de APIs de servicios insurtech / fintech</span></li>
+            <li><span class="keyword">Observabilidad</span> <span class="description">Logging, tracing y alerting</span></li>
+            <li><span class="keyword">Ágil</span> <span class="description">Experiencia en startup con Scrum/Kanban</span></li>
+            <li><span class="keyword">IA/ML</span> <span class="description">Interés o experiencia aplicada a productos</span></li>
           </ul>
         </div>
       </div>
 
       <!-- Inclusive language callout -->
-      <div style="margin-top:18px; background:#fff8ec; border:1px solid #e8c96b; border-radius:8px; padding:14px 20px; display:flex; gap:12px; align-items:flex-start;">
-        <span style="font-size:20px; flex-shrink:0;">💡</span>
-        <p style="font-size:13.5px; color:#5a4a1a; line-height:1.65;">
+      <div style="margin-top:24px; background: linear-gradient(135deg, #FFFBF0 0%, #FFF8E8 100%); border: 1px solid #E5D4A2; border-left: 4px solid #D4A856; border-radius: 10px; padding: 18px 24px; display: flex; gap: 14px; align-items: flex-start; box-shadow: 0 2px 8px rgba(200,153,58,.08);">
+        <span style="font-size: 22px; flex-shrink: 0;">💡</span>
+        <p style="font-size: 13.5px; color: #5a4a1a; line-height: 1.7;">
           <strong>¿No cumplís con el 100% de los requisitos?</strong> De todas formas, te animamos a postularte. En Counterpart valoramos el potencial, la actitud de aprendizaje y el alineamiento con nuestra cultura tanto como la experiencia técnica. Si te apasiona el desafío, queremos conocerte.
         </p>
       </div>
@@ -663,7 +716,7 @@
         <div class="benefit-card">
           <div class="benefit-icon">💰</div>
           <div class="benefit-title">Compensación Competitiva</div>
-          <div class="benefit-desc">Paquete salarial acorde al nivel y al mercado tecnológico, detallado en la Carta Oferta.</div>
+          <div class="benefit-desc">Paquete salarial acorde al nivel y al mercado tecnológico.</div>
         </div>
         <div class="benefit-card">
           <div class="benefit-icon">📈</div>
@@ -714,7 +767,7 @@
           <div style="display:flex; gap:0; align-items:flex-start;">
             <!-- left peer -->
             <div class="org-branch" style="margin-right:0;">
-              <div style="width:70px; height:2px; background:var(--teal-border); margin-left:auto;"></div>
+              <div style="width:70px; height:2px; background:var(--teal-light); margin-left:auto;"></div>
               <div class="org-connector" style="height:14px;"></div>
               <div class="org-node" style="min-width:160px; font-size:12px; opacity:.6;">Full Stack Engineer</div>
               <div class="org-peer-label">Par / Equipo</div>
@@ -722,14 +775,14 @@
 
             <!-- center: highlighted -->
             <div class="org-branch" style="margin: 0 0;">
-              <div style="width:140px; height:2px; background:var(--teal-border);"></div>
+              <div style="width:140px; height:2px; background:var(--teal-light);"></div>
               <div class="org-connector" style="height:14px;"></div>
               <div class="org-node highlight" style="min-width:190px;">Full Stack Engineer<br/><span style="font-weight:400; font-size:11px; opacity:.8;">← Posición abierta</span></div>
             </div>
 
             <!-- right peer -->
             <div class="org-branch" style="margin-left:0;">
-              <div style="width:70px; height:2px; background:var(--teal-border); margin-right:auto;"></div>
+              <div style="width:70px; height:2px; background:var(--teal-light); margin-right:auto;"></div>
               <div class="org-connector" style="height:14px;"></div>
               <div class="org-node" style="min-width:160px; font-size:12px; opacity:.6;">Full Stack Engineer</div>
               <div class="org-peer-label">Par / Equipo</div>
@@ -751,7 +804,7 @@
         <h3>¿Te identificás con este perfil?</h3>
         <p>Queremos conocerte. Aplicá antes del <strong style="color:rgba(255,255,255,.85)">16 de mayo de 2026</strong> y sumate a un equipo que está redefiniendo el seguro para las pymes.</p>
       </div>
-      <a href="mailto:talent@counterpart.com" class="cta-btn">Aplicar ahora →</a>
+      <a href="https://yourcounterpart.com/about#careers" class="cta-btn" target="_blank">Aplicar ahora →</a>
     </div>
 
   </div><!-- /body-wrap -->
@@ -762,10 +815,6 @@
   <footer class="doc-footer">
     <p><strong>Counterpart Insurance Services, Inc.</strong> · Los Ángeles, California, EE.UU.</p>
     <p>Referencia interna: <strong>ENG-FSE-2026-001</strong> · Fecha de publicación: Abril 2026</p>
-    <p style="text-align:right; font-size:10.5px; opacity:.7;">
-      Counterpart es un empleador que practica la igualdad de oportunidades.<br/>
-      Valoramos la diversidad y el trabajo inclusivo en todos sus sentidos.
-    </p>
   </footer>
 
 </div><!-- /page -->

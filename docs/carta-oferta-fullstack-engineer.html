@@ -573,7 +573,7 @@
         <!-- Date -->
         <div class="date-block">
           <div class="label">Fecha de emisión</div>
-          <div class="value" id="issue-date">—</div>
+          <div class="value" id="issue-date">-</div>
         </div>
       </div>
 
@@ -712,7 +712,7 @@
           </div>
           <div class="benefit-row">
             <div class="benefit-bullet"></div>
-            <div class="benefit-text"><strong>Stock Options</strong> — plan de opciones sobre acciones para crecer junto con la empresa.</div>
+            <div class="benefit-text"><strong>Stock Options</strong> - plan de opciones sobre acciones para crecer junto con la empresa.</div>
           </div>
           <div class="benefit-row">
             <div class="benefit-bullet"></div>
@@ -728,12 +728,12 @@
           </div>
           <div class="benefit-row">
             <div class="benefit-bullet"></div>
-            <div class="benefit-text"><strong>Bono de USD 300 para Home Office</strong> — para que armes el espacio de trabajo que necesitás desde el primer día.</div>
+            <div class="benefit-text"><strong>Bono de USD 300 para Home Office</strong> - para que armes el espacio de trabajo que necesitás desde el primer día.</div>
           </div>
           <div class="benefit-row" style="grid-column: 1 / -1;">
             <div class="benefit-bullet" style="background: #0F766E;"></div>
             <div class="benefit-text">
-              <strong>Estipendio de bienestar de USD 100 / mes</strong> (Prioritize Wellness) — para destinar a lo que te recargue: gimnasio, meditación, actividades recreativas o lo que a vos te funcione.
+              <strong>Estipendio de bienestar de USD 100 / mes</strong> (Prioritize Wellness) - para destinar a lo que te recargue: gimnasio, meditación, actividades recreativas o lo que a vos te funcione.
             </div>
           </div>
         </div>
@@ -781,8 +781,8 @@
               <line x1="12" y1="16" x2="12.01" y2="16"/>
             </svg>
             <p class="cta-deadline-text">
-              Esta oferta tiene una vigencia de <strong>3 días hábiles</strong> a partir de la fecha de emisión.
-              Por favor, respondé antes del <strong id="deadline-date">—</strong> para reservar tu posición.
+              Esta oferta tiene una vigencia de <strong>5 días hábiles</strong> a partir de la fecha de emisión.
+              Por favor, respondé antes del <strong id="deadline-date">-</strong> para reservar tu posición.
             </p>
           </div>
 
@@ -849,9 +849,9 @@
     document.getElementById('issue-date').textContent =
       `${days[now.getDay()]}, ${now.getDate()} de ${months[now.getMonth()]} de ${now.getFullYear()}`;
 
-    // Deadline: +3 business days
+    // Deadline: +5 business days
     let count = 0, cursor = new Date(now);
-    while (count < 3) {
+    while (count < 5) {
       cursor.setDate(cursor.getDate() + 1);
       if (cursor.getDay() !== 0 && cursor.getDay() !== 6) count++;
     }
