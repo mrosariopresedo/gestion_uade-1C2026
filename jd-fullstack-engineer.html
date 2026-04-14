@@ -215,8 +215,8 @@
     }
     .jd-list-enhanced li {
       display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 16px;
+      grid-template-columns: 180px 1fr;
+      gap: 18px;
       align-items: flex-start;
       font-size: 14px;
       color: var(--gray-900);
@@ -238,13 +238,17 @@
     .jd-list-enhanced .keyword {
       font-weight: 700;
       color: var(--teal-dark);
-      white-space: nowrap;
       padding: 6px 10px;
       background: var(--teal-light);
       border-radius: 6px;
-      font-size: 12px;
+      font-size: 11.5px;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
+      line-height: 1.35;
+      text-align: center;
+      align-self: start;
+      word-break: break-word;
+      hyphens: auto;
     }
     .jd-list-enhanced .description {
       color: #555;
@@ -279,6 +283,16 @@
       border-bottom: 2px solid var(--gray-300);
     }
     .req-card .jd-list li { font-size: 13.5px; }
+    .req-card .jd-list-enhanced li {
+      grid-template-columns: 120px 1fr;
+      gap: 12px;
+      font-size: 13px;
+    }
+    .req-card .jd-list-enhanced .keyword {
+      font-size: 10.5px;
+      padding: 5px 8px;
+      letter-spacing: 0.3px;
+    }
 
     /* Competency cards */
     .comp-grid {
