@@ -316,7 +316,66 @@
       line-height: 1.6;
     }
 
-    /* Benefits grid */
+    /* Compensation and benefits */
+    .section-label {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--teal-mid);
+      margin-bottom: 18px;
+    }
+    .comp-hero {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 18px;
+      background: linear-gradient(135deg, #0F766E 0%, #14908A 100%);
+      border-radius: 12px;
+      padding: 22px 24px;
+      margin-bottom: 18px;
+      color: var(--white);
+      box-shadow: 0 8px 24px rgba(15,118,110,.2);
+    }
+    .comp-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.78);
+      margin-bottom: 8px;
+    }
+    .comp-amount {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .comp-period {
+      font-size: 12.5px;
+      color: rgba(255,255,255,.78);
+      line-height: 1.6;
+    }
+    .comp-hero-right {
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 10px;
+      padding: 14px 16px;
+      align-self: center;
+    }
+    .adj-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.75);
+      margin-bottom: 6px;
+    }
+    .adj-value {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+    }
     .benefits-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -490,7 +549,7 @@
     @media (max-width: 680px) {
       .hero, .body-wrap, .doc-footer { padding-left: 24px; padding-right: 24px; }
       .salary-banner { padding-left: 24px; padding-right: 24px; }
-      .req-columns, .comp-grid, .benefits-grid { grid-template-columns: 1fr; }
+      .req-columns, .comp-grid, .comp-hero, .benefits-grid { grid-template-columns: 1fr; }
       .cta-section { flex-direction: column; }
       .hero-title { font-size: 24px; }
     }
@@ -704,14 +763,22 @@
 
     <hr class="divider"/>
 
-    <!-- BENEFITS -->
+    <!-- COMPENSATION -->
     <section class="section">
-      <div class="section-header">
-        <div class="section-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      <div class="section-label">Compensación y beneficios</div>
+
+      <div class="comp-hero">
+        <div class="comp-hero-left">
+          <div class="comp-label">Salario Base Anual</div>
+          <div class="comp-amount">USD 70,000 - 80,000</div>
+          <div class="comp-period">Dólares estadounidenses · pago mensual · según experiencia</div>
         </div>
-        <span class="section-title">Lo que te ofrecemos</span>
+        <div class="comp-hero-right">
+          <div class="adj-label">Nivel del puesto</div>
+          <div class="adj-value">Semi-Senior / Senior</div>
+        </div>
       </div>
+
       <div class="benefits-grid">
         <div class="benefit-card">
           <div class="benefit-icon">💰</div>
